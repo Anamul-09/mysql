@@ -1,4 +1,4 @@
-<?php  $db = new mysqli('localhost','root','','anamul')?>
+<?php $db = new mysqli('localhost','root','','anamul')?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,57 +10,39 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>Students list table</h2>
-    
-    <table class="table table-striped">
-    <tr>
-        <th>Students_id</th>
-        <th>Students_name</th>
-        <th>Students_email</th>
-        <th>Students_phone</th>
-        <th>action</th>
-    </tr>
 
-    <?php 
-        $sql = " SELECT * FROM students";
-        $result = $db->query($sql);
-    echo "<h2>Total record found $result->num_rows<h2>";
-        // $data = $result->fetch_array();
-        // print_r($result);
 
-        while($data = $result->fetch_array()){ ?>
+<table border="1">
         <tr>
-            <td><?php echo $data["student_id"]?></td>
-            <td><?php echo $data["student_name"]?></td>
-            <td><?php echo $data["student_email"]?></td>
-            <td><?php echo $data["student_phone"]?></td>
-            <td>
-                     <!-- delete data -->
-                 <a href="students_list_delete.php?id=<?php echo $data['student_id']?>"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a> 
-                        <!-- Edit data -->
-            <a href="student_edit.php?id=<?php echo $data['student_id']?>"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+            <th>student id</th>
+            <th>student Name</th>
+            <th>student email</th>
+            <th>student phone</th>
+            <th>Action</th>
+        </tr>
+        <?php
+            $sql = "SELECT * FROM students1";
+            
+            $result = $db->query($sql);
+            echo "<h2>Total rows $result->num_rows<h2> ";
+            while($data = $result->fetch_array()){ ?>
+                <tr>
+                <td><?php echo $data["studentid"]; ?></td>
+                <td><?php echo $data["studentname"]; ?></td>
+                <td><?php echo $data["studentemail"]; ?></td>
+                <td><?php echo $data["studentphone"]; ?></td>
+                <td>
+                    <a href="student_delete.php?id=<?php echo $data['studentid']?>" onclick="return confirm('Are you sure')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
 
-            </td> 
-             <!-- <td><?php  var_dump($data['student_id']);?></td>  -->
-       </tr>
+                    <a href="student_delete.php?id=<?php echo $data['studentid']?>" ><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                </td>
 
-
-
-     <?php   }
-    
-    ?>
- 
+               
+            </tr>
+            <?php  }
+        ?>
     </table>
-
-    <a href="student_entrys.php">New entry</a>
-
-    <?php 
-    
-    ?>
-
-    
-
-
+    <a href="student_entry.php">New data</a>
     
 </body>
 </html>

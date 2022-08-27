@@ -1,0 +1,54 @@
+
+//login
+mysql -h localhost -u root -p
+
+
+
+//user Create 
+create user 'shajadul'@'localhost' identified by 'abcd';
+
+//access new user
+mysql -h localhost -u anamul -p
+
+// drop or delete user
+drop user 'shajadul'@'localhost';
+
+//exit
+exit
+
+
+
+//rename users 
+RENAME USER 'anam'@'localhost' to 'anam01'@'localhost';
+
+// cls - clear code shell
+cls
+
+//grant previllagues set
+grant select on wdpf51.* to 'shajadul'@'localhost';
+grant insert,delete,update,select wdpf51.* to 'shajadul'@'localhost';
+
+//show databases
+show databases;
+
+//use databases
+use wdpf51;
+
+//show table
+show tables;
+
+//show tables features
+select * from users;
+
+//insert data from table
+INSERT INTO products VALUES(NULL, 'SH201' 'Blue shirt' ,'','500');
+
+//Revoke 
+ revoke insert on anamul.* FROM 'shajadul'@'localhost';
+
+ 
+
+
+
+
+

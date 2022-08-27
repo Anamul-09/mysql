@@ -19,7 +19,7 @@
         <input type="email" name="email" placeholder="Enter your email" id=""><br>
         <label for="">Phone :</label>
         <input type="text" name="phone" placeholder="Enter your phonenumber"><br>
-        <input type="submit" value="UPDATE" name="submit">
+        <input type="submit" value="Submit" name="submit">
     </form>
 
     <a href="students_list.php">Students list</a><br>
@@ -29,11 +29,6 @@
 </html>
 
 <?php
-
-echo $id =$_REQUEST["id"];
-
-$sql ="SELECT * FROM students1 WHERE studentid = '$id'";
-$result =$db->query($sql);
     if(isset($_POST["submit"])){
         extract($_POST);
         // $id = $_POST["id"];

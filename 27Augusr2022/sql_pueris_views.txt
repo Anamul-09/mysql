@@ -1,0 +1,20 @@
+customers:
+customerNumber,customerName,city,country
+
+employees:employeeNumber,lastName,email,jobTitle
+
+SELECT customerNumber,customerName,city,country,employeeNumber,lastName,email,jobTitle FROM customers ,employees WHERE employees.employeeNumber = customers.salesRepEmployeeNumber;
+*********************
+
+SELECT c.customerNumber,c.customerName,c.city,country,e.employeeNumber,e.lastName,e.email,e.jobTitle FROM customers c ,employees e WHERE e.employeeNumber = c.salesRepEmployeeNumber;
+###########################
+CREATE VIEW  customer_address_view AS SELECT c.customerNumber,c.customerName,c.city,c.country,e.employeeNumber,e.lastName,e.email,e.jobTitle FROM customers c ,employees e WHERE e.employeeNumber = c.salesRepEmployeeNumber;
+
+//rename table 
+RENAME TABLE customerslist_with_employees TO customers_with_salesEmp;
+
+*************************************
+triggers
+-----------------
+students_table_log
+id,studentid,studentname,studentemail,studentphone,action,action_time;

@@ -1,0 +1,40 @@
+//creat trigger
+
+DELIMITER //
+CREATE TRIGGER after_students_entry
+AFTER INSERT ON students1
+FOR EACH ROW
+BEGIN
+INSERT INTO students_table_log
+ VALUES(NULL,NEW.studentid,NEW.studentname,NEW.studentemail,NEW.studentphone,'INSERT',CURRENT_TIMESTAMP());
+END//;
+
+DELIMITER ;
+
+******************************************
+//update trigger
+
+DELIMITER //
+CREATE TRIGGER after_students_update
+AFTER UPDATE ON students1
+FOR EACH ROW
+BEGIN
+INSERT INTO students_table_log
+ VALUES(NULL,NEW.studentid,NEW.studentname,NEW.studentemail,NEW.studentphone,'UPDATE',CURRENT_TIMESTAMP());
+END//
+
+DELIMITER ;
+
+**********************************************************
+//Delete trigger
+
+DELIMITER //
+CREATE TRIGGER after_students_update
+BEFORE DELETE ON students1
+FOR EACH ROW
+BEGIN
+INSERT INTO students_table_log
+ VALUES(NULL,OLD.studentid,OLD.studentname,OLD.studentemail,OLD.studentphone,'DELETE',CURRENT_TIMESTAMP());
+END//
+
+DELIMITER ;
