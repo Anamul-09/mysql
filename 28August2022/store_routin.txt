@@ -1,0 +1,69 @@
+# create  procedure statement
+DELIMITER $$
+
+CREATE PROCEDURE GetCustomers()
+BEGIN
+	SELECT 
+		customerName, 
+		city, 
+		state, 
+		postalCode, 
+		country
+	FROM
+		customers
+	ORDER BY customerName;    
+END$$
+DELIMITER ;
+
+
+#call getCustomers
+CALL GetCustomers();
+************************
+#creat procedure with where cluse
+DELIMITER &&  
+CREATE PROCEDURE get_merit_student ()  
+BEGIN  
+    SELECT * FROM studentinfo WHERE marks > 70;  
+    SELECT COUNT(stud_code) AS Total_Student FROM studentinfo;    
+END &&  
+DELIMITER ;  
+**************************
+#creat procedure with in paramiter
+
+DELIMITER &&  
+CREATE PROCEDURE get_student (IN num INT)  
+BEGIN  
+    SELECT * FROM studentinfo LIMIT num;  
+    SELECT COUNT(stud_code) AS Total_Student FROM studentinfo;    
+END &&  
+DELIMITER ;
+
+***********************************
+
+#start transaction
+
+START TRANSACTION;  
+  
+INSERT INTO students1
+VALUES ('103','Sm', 'sm@gmail.com', '012458545');  
+  
+INSERT INTO users
+VALUES (NULL,'Sm', 'sm@gmail.com', sha1('abcd'));  
+      
+COMMIT; 
+
+*******************
+#close transaction
+***
+#start transaction
+
+START TRANSACTION;  
+  
+INSERT INTO students1
+VALUES ('103','Sm', 'sm@gmail.com', '012458545');  
+  
+INSERT INTO users
+VALUES (NULL,'Sm', 'sm@gmail.com', sha1('abcd'));  
+      
+COMMIT; 
+/*ROLLBACK*/

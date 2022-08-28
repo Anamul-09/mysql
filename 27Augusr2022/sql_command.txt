@@ -1,0 +1,15 @@
+// view from table
+
+CREATE VIEW  customer_address_view AS
+SELECT customerNumber,customerName,addressLine1,addressLine2,city,country,phone FROM customers ORDER BY customerNumber;
+
+#########
+CREATE VIEW USA_Address_view ASSELECT customerNumber,customerName,city,country FROM customers WHERE country='USA' ORDER BY customerNumber;
+#####
+SELECT customerNumber,customerName FROM `country_france`;
+
+
+#################################
+
+
+

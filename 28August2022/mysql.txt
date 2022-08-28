@@ -1,0 +1,12 @@
+INSERT INTO students1(`studentid`, `studentname`, `studentemail`, `studentphone`) VALUES ('1002','Rabbany','rabbany2gmail.com','01254549865');
+
+
+INSERT INTO students1 VALUES ('1004','sakib','sakib@gmail.com','012545498');
+
+INSERT INTO students1 VALUES
+ ('1004','titu','titu@gmail.com','012545498'),
+('1006','Tipu','Tipu@gmail.com','012545498')
+
+
+#######################################################################
+DELETE FROM students WHERE studentid=1001;
