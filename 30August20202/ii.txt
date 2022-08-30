@@ -1,0 +1,21 @@
+# Full tex indexing with MATCH
+
+SELECT productName,productDescription FROM products WHERE MATCH(productDescription) AGAINST ('Wheels');
+*********
+# Full tex indexing with LIKE
+
+SELECT productName,productDescription FROM products WHERE (productDescription) LIKE '%Wheels%';
+
+******************************
+# mysql databasedump in command line
+
+mysqldump -u root -p anamul > E:\wdpf51_dump.sql
+
+mysql -u root -p wdpf51_blank < E:\wdpf51_dump.sql
+
+*******************************************
+
+#export by dump_file
+
+SELECT * INTO OUTFILE "E:/stu_info.txt" FIELDS TERMINATED BY '\t' LINES TERMINATED BY '\n' FROM anamul.students1;
+
